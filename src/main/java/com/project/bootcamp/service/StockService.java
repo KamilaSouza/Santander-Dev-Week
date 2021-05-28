@@ -1,9 +1,11 @@
 package com.project.bootcamp.service;
 
+import com.project.bootcamp.exceptions.BusinessException;
 import com.project.bootcamp.mapper.StockMapper;
 import com.project.bootcamp.model.Stock;
 import com.project.bootcamp.model.dto.StockDTO;
 import com.project.bootcamp.repository.StockRepository;
+import com.project.bootcamp.utilities.MessageUtilities;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +25,7 @@ public class StockService {
     public StockDTO save(StockDTO dto) {
         Optional<Stock> optionalStock = repository.findByNameAndDate(dto.getName(), dto.getDate());
         if(optionalStock.isPresent()){
+            throw new BusinessException(MessageUtilities.STOCK_ALREADY_EXISTS);
 
         }
 
