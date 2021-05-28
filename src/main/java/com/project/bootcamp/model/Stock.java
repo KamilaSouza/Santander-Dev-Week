@@ -12,6 +12,9 @@ public class Stock {
     @Column(name = "id")
     private Long id;
 
+    @Column(name = "name")
+    private String name;
+
     @Column(name = "price")
     private Double price;
 
@@ -20,6 +23,14 @@ public class Stock {
 
     @Column(name = "date")
     private LocalDate date;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Long getId() {
         return id;
