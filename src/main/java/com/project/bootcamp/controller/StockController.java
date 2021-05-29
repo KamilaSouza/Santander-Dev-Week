@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+//necessário para o front
+@CrossOrigin
 @RestController
 @RequestMapping(value = "/stock")
 public class StockController {
